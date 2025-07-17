@@ -23,4 +23,7 @@ Route::post('/tasks/add',[TaskController::class,'addTask'])->name('panel.addTask
 
 //kategoriler starts
 Route::get('/panel/categories/index',[CategoriController::class,'index'])->name('panel.categories');
+Route::get('/panel/categories/create',[CategoriController::class,'createPage'])->name('panel.categoriesCreatePage');
+Route::post('/panel/categories/addCategory',[CategoriController::class,'postCategory'])->name('panel.categoryAdd');
+
 //kategoriler end

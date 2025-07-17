@@ -4,8 +4,16 @@
 @section('content')
 <div class="card p-3">
       <div class="card-header">
+          @if(session('success'))
+              <div class="alert alert-success alert-dismissible" role="alert"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                          {{session('success')}}
+                      </font></font><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapalı"></button>
+              </div>
+          @endif
+
+
         <h3> Kategoriler </h3>
-          <button class="btn btn-sm btn-success">  Yeni Kategori Oluştur  </button>
+          <a href="{{route('panel.categoriesCreatePage')}}" class="btn btn-sm btn-success">  Yeni Kategori Oluştur  </a>
       </div>
 
      <div class="card-body">
@@ -13,7 +21,7 @@
              <h5 class="card-header">Kategori Listesi</h5>
              <p class="ms-2">Kategori listesi aşağıda bulunmaktadır</p>
              <div class="table-responsive text-nowrap">
-
+                  @if($kategoriler->first())
                  <table class="table">
                      <thead>
                      <tr>
@@ -51,7 +59,10 @@
 
                      </tbody>
                  </table>
+                 @else
+                       <p>Henüz Hiç Kategori Oluşturmadınız </p>
 
+                 @endif
              </div>
          </div>
 
