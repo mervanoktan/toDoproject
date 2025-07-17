@@ -34,4 +34,28 @@ public  function postCategory(request $request){
 
 }
 
+
+public function updatePage($a){
+       //where(sütünadı , ne aranıyor)
+       //$category= Category::where('id',$a)->get();
+
+
+      //$category= Category::where('id',$a)->first();  aşağıdaki sorgu ile aynı
+      $category= Category::find($a);
+
+
+      return view('panel.categories.update',compact('category')); ;
+
+}
+public function updateCategory(Request $request){
+        //dd($request->all()); //catName catid
+        $category=Category::find($request->catid);
+        $category->name= $request->catName;
+        $category->is_active= $request->catStatus;
+        $category->save();
+       return redirect()->route('panel.categories')->with(['success'=> 'Kategori Başarıyla Güncellendi']);
+
+}
+
+
 }

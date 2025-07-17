@@ -49,8 +49,8 @@
                                 {{$k->created_at}}
                              </td>
                              <td>
-                             <button class="btn btn-sm btn-success"> Güncelle  </button>
-                             <button class="btn btn-sm btn-warning"> Sil  </button>
+                             <a href="{{route('panel.categoriesUpdatePage',$k->id)}}" class="btn btn-info btn-success"> Güncelle </a>
+                             <a href="" class="btn btn-sm btn-warning"> Sil  </a>
 
                              </td>
 
