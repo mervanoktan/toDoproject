@@ -49,11 +49,29 @@ public function updatePage($a){
 }
 public function updateCategory(Request $request){
         //dd($request->all()); //catName catid
+
+        $request->validate([
+            //form_name'=> kurallar doğrulama işine yarar
+             'catStatus'=> 'min=0|max:1|',
+              'catName'=> 'min:3'
+
+        ]);
+
         $category=Category::find($request->catid);
+        if($category!=null){
         $category->name= $request->catName;
         $category->is_active= $request->catStatus;
         $category->save();
-       return redirect()->route('panel.categories')->with(['success'=> 'Kategori Başarıyla Güncellendi']);
+            return redirect()->route('panel.categories')->with(['success'=> 'Kategori Başarıyla Güncellendi']);
+
+    }
+     else
+     {
+
+         return redirect()->route('panel.categories')->with(['errors'=> 'Bir Hata Oluştu Lütfen  Tekrar Deneyiniz']);
+
+     }
+
 
 }
 

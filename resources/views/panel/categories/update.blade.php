@@ -12,11 +12,17 @@
         <div class="card-body">
 
 
-            <br><br><br>
+            @if(session('errors'))
+                <div class="alert alert-danger alert-dismissible" role="alert"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            {{session('errors')}}
+                        </font></font><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapalı"></button>
+                </div>
+            @endif
 
-            <form action="{{route('panel.updateCategory')}}", method="POST">
+
+            <form action="{{route('panel.updateCategory')}}" method="POST">
                 @csrf
-                <input type="hidden" value="{{$category->id}}" name="catid">
+               <input type="hidden" value="{{$category->id}}" name="catid">
 
 
 

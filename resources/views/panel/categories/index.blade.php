@@ -10,9 +10,17 @@
                       </font></font><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapalı"></button>
               </div>
           @endif
+              @if(session('errors'))
+                  <div class="alert alert-danger alert-dismissible" role="alert"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                              {{session('errors')}}
+                          </font></font><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapalı"></button>
+                  </div>
+              @endif
 
 
-        <h3> Kategoriler </h3>
+
+
+              <h3> Kategoriler </h3>
           <a href="{{route('panel.categoriesCreatePage')}}" class="btn btn-sm btn-success">  Yeni Kategori Oluştur  </a>
       </div>
 
