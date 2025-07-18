@@ -27,4 +27,14 @@ Route::get('/panel/categories/create',[CategoriController::class,'createPage'])-
 Route::post('/panel/categories/addCategory',[CategoriController::class,'postCategory'])->name('panel.categoryAdd');
 Route::get('/panel/categories/update/{id}',[CategoriController::class,'updatePage'])->name('panel.categoriesUpdatePage');
 Route::post(url('/panel/category/updatePost'),[CategoriController::class,'updateCategory'])->name('panel.updateCategory');
+Route::get(url('/panel/categories/delete/{id}'),[CategoriController::class,'deleteCategory'])->name('panel.deleteCategory');
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
