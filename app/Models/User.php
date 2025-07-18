@@ -64,4 +64,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+  public function gettasks(){
+        return $this->hasManyThrough(related: Task::class,through: Category::class,firstKey: 'user_id',secondKey: 'category_id');
+  }
+
 }

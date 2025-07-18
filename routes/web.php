@@ -19,6 +19,8 @@ Route::get('/testtemple', function () {
 //tasks rotaları
 Route::get('/tasks/create',[TaskController::class,'createPage'])->name('panel.CreateTasksPage');
 Route::post('/tasks/add',[TaskController::class,'addTask'])->name('panel.addTask');
+Route::get('/tasks/index',[TaskController::class,'indexPage'])->name('panel.indextasks');
+
 // tasks end
 
 //kategoriler starts
